@@ -1,5 +1,5 @@
 // Constants
-const API_KEY = "sk-Lixxxxx";
+const API_KEY = "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;
 const MODEL_TYPE = "gpt-3.5-turbo"; //chatGPT model
 
 // Creates a custom menu in Google Slides
