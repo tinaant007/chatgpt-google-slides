@@ -38,7 +38,6 @@
       min-height: 100vh;
     }
 
-    /* ── Header ── */
     header {
       background: linear-gradient(135deg, #1a56db 0%, #7c3aed 100%);
       color: white;
@@ -75,7 +74,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── Part navigation ── */
     nav.parts-nav {
       display: flex;
       gap: 4px;
@@ -99,18 +97,15 @@
       font-weight: 700;
     }
 
-    /* ── Main layout ── */
     main {
       max-width: 1100px;
       margin: 32px auto;
       padding: 0 24px 64px;
     }
 
-    /* ── Part panels ── */
     .part-panel { display: none; }
     .part-panel.active { display: block; }
 
-    /* ── Section header ── */
     .part-header {
       display: flex;
       align-items: flex-start;
@@ -131,13 +126,11 @@
     .part-header-text h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
     .part-header-text p { color: var(--gray-500); font-size: 0.95rem; line-height: 1.5; }
 
-    /* Part colour themes */
     .theme-blue .part-number  { background: var(--blue-light); color: var(--blue); }
     .theme-green .part-number { background: var(--green-light); color: var(--green); }
     .theme-amber .part-number { background: var(--amber-light); color: var(--amber); }
     .theme-purple .part-number{ background: var(--purple-light); color: var(--purple); }
 
-    /* ── Card ── */
     .card {
       background: white;
       border-radius: var(--radius);
@@ -156,7 +149,6 @@
     }
     .card-title .icon { font-size: 1.1rem; }
 
-    /* ── Timer ── */
     .timer-card {
       display: flex;
       align-items: center;
@@ -164,20 +156,9 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-    .timer-display {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-      font-variant-numeric: tabular-nums;
-      line-height: 1;
-    }
-    .timer-display.warning { color: var(--amber); }
-    .timer-display.danger  { color: var(--red); }
-    .timer-label { color: var(--gray-500); font-size: 0.85rem; margin-top: 4px; }
 
     .timer-controls { display: flex; gap: 10px; flex-wrap: wrap; }
 
-    /* ── Buttons ── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -204,7 +185,6 @@
     }
     .btn-outline:hover { border-color: var(--gray-500); background: var(--gray-100); }
 
-    /* ── Question card ── */
     .question-box {
       background: var(--blue-light);
       border: 1.5px solid #c3d9fb;
@@ -233,7 +213,6 @@
       right: 14px;
     }
 
-    /* ── Progress bar ── */
     .progress-wrap { margin-bottom: 8px; }
     .progress-bar {
       height: 6px;
@@ -254,7 +233,6 @@
       text-align: right;
     }
 
-    /* ── Tips list ── */
     .tips-list { list-style: none; }
     .tips-list li {
       display: flex;
@@ -268,11 +246,9 @@
     .tips-list li:last-child { border-bottom: none; }
     .tips-list li .tip-icon { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
 
-    /* ── Two-column layout ── */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
 
-    /* ── Photo card (Part 2) ── */
     .photo-placeholder {
       background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
       border: 2px dashed var(--gray-300);
@@ -296,7 +272,6 @@
       max-width: 200px;
     }
 
-    /* ── Mind-map (Part 3) ── */
     .mindmap {
       background: var(--gray-50);
       border: 1px solid var(--gray-200);
@@ -347,7 +322,6 @@
     }
     .mindmap-node.discussed::after { content: ' ✓'; }
 
-    /* ── Vocabulary chips ── */
     .vocab-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
       background: var(--purple-light);
@@ -361,7 +335,6 @@
     }
     .chip:hover { background: #c4b5fd; }
 
-    /* ── Score tracker ── */
     .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     @media (max-width: 600px) { .score-grid { grid-template-columns: 1fr 1fr; } }
     .score-item { text-align: center; }
@@ -370,7 +343,6 @@
     .score-stars .star { opacity: 0.25; transition: opacity 0.1s; }
     .score-stars .star.filled { opacity: 1; }
 
-    /* ── Home / Overview panel ── */
     .overview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     @media (max-width: 600px) { .overview-grid { grid-template-columns: 1fr; } }
     .overview-card {
@@ -413,7 +385,6 @@
     .hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
     .hero p { color: var(--gray-500); font-size: 1rem; max-width: 520px; margin: 0 auto 32px; line-height: 1.6; }
 
-    /* ── Notification ── */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -434,7 +405,6 @@
     }
     .toast.show { opacity: 1; transform: translateY(0); }
 
-    /* ── Feedback note ── */
     .feedback-note {
       background: var(--gray-50);
       border: 1px solid var(--gray-200);
@@ -446,10 +416,8 @@
       font-style: italic;
     }
 
-    /* ── Divider ── */
     hr { border: none; border-top: 1px solid var(--gray-200); margin: 24px 0; }
 
-    /* ── Badge ── */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -463,7 +431,6 @@
       color: var(--gray-700);
     }
 
-    /* ── Criteria table ── */
     .criteria-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
     .criteria-table th {
       text-align: left;
@@ -481,7 +448,6 @@
     }
     .criteria-table tr:last-child td { border-bottom: none; }
 
-    /* ── Scrollable question list ── */
     .q-list {
       list-style: none;
       max-height: 260px;
@@ -504,7 +470,6 @@
     .q-list li:hover { background: var(--blue-light); }
     .q-list li .q-num { color: var(--blue); font-weight: 700; flex-shrink: 0; min-width: 22px; }
 
-    /* ── Tabs inside card ── */
     .tab-bar { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
     .tab-btn {
       padding: 6px 14px;
@@ -525,18 +490,6 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* ── Recording indicator ── */
-    .rec-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--red);
-      animation: blink 1s infinite;
-    }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-
-    /* Timer ring */
     .timer-ring-wrap {
       position: relative;
       width: 120px;
@@ -568,14 +521,12 @@
 </head>
 <body>
 
-<!-- Toast notification -->
 <div class="toast" id="toast"></div>
 
-<!-- Header -->
 <header>
   <div class="header-inner">
     <div class="logo">
-      <span>🎓</span>
+      <span>&#127891;</span>
       FCE Speaking
       <span class="logo-badge">B2</span>
     </div>
@@ -591,7 +542,6 @@
 
 <main>
 
-  <!-- ═══════════════════════════ HOME ═══════════════════════════ -->
   <div class="part-panel active" id="panel-home">
     <div class="hero">
       <h1>FCE Speaking Practice</h1>
@@ -600,8 +550,8 @@
 
     <div class="overview-grid">
       <div class="overview-card blue" onclick="showPanel('part1', document.querySelectorAll('.parts-nav button')[1])">
-        <div class="tag tag-blue">Part 1 · 2 min</div>
-        <h3 style="margin-top:10px;">🗣️ Interview</h3>
+        <div class="tag tag-blue">Part 1 &middot; 2 min</div>
+        <h3 style="margin-top:10px;">&#128483; Interview</h3>
         <p>Answer personal questions about your life, interests, opinions and experiences. Show fluency in everyday conversation.</p>
         <div class="oc-meta">
           <span class="badge">20 practice questions</span>
@@ -609,8 +559,8 @@
         </div>
       </div>
       <div class="overview-card green" onclick="showPanel('part2', document.querySelectorAll('.parts-nav button')[2])">
-        <div class="tag tag-green">Part 2 · 1 min each</div>
-        <h3 style="margin-top:10px;">🖼️ Long Turn</h3>
+        <div class="tag tag-green">Part 2 &middot; 1 min each</div>
+        <h3 style="margin-top:10px;">&#128444; Long Turn</h3>
         <p>Compare two photographs, speculate about the situation and answer a focus question. React to your partner's turn.</p>
         <div class="oc-meta">
           <span class="badge">10 photo topics</span>
@@ -618,8 +568,8 @@
         </div>
       </div>
       <div class="overview-card amber" onclick="showPanel('part3', document.querySelectorAll('.parts-nav button')[3])">
-        <div class="tag tag-amber">Part 3 · 4 min</div>
-        <h3 style="margin-top:10px;">💬 Collaborative Task</h3>
+        <div class="tag tag-amber">Part 3 &middot; 3 min</div>
+        <h3 style="margin-top:10px;">&#128172; Collaborative Task</h3>
         <p>Discuss a set of prompts with a partner, then reach a decision together. Practice interactive language.</p>
         <div class="oc-meta">
           <span class="badge">6 task scenarios</span>
@@ -627,8 +577,8 @@
         </div>
       </div>
       <div class="overview-card purple" onclick="showPanel('part4', document.querySelectorAll('.parts-nav button')[4])">
-        <div class="tag tag-purple">Part 4 · 4 min</div>
-        <h3 style="margin-top:10px;">🌍 Discussion</h3>
+        <div class="tag tag-purple">Part 4 &middot; 4 min</div>
+        <h3 style="margin-top:10px;">&#127757; Discussion</h3>
         <p>Discuss broader questions related to Part 3. Give and justify opinions, agree or respectfully disagree.</p>
         <div class="oc-meta">
           <span class="badge">18 discussion Qs</span>
@@ -638,67 +588,44 @@
     </div>
 
     <div class="card" style="margin-top:24px;">
-      <div class="card-title"><span class="icon">📋</span> Assessment Criteria</div>
+      <div class="card-title"><span class="icon">&#128203;</span> Assessment Criteria</div>
       <table class="criteria-table">
-        <thead>
-          <tr>
-            <th>Criterion</th>
-            <th>What examiners look for</th>
-            <th>Weight</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Criterion</th><th>What examiners look for</th><th>Weight</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Grammar & Vocabulary</strong></td>
-            <td>Range and accuracy of grammar; breadth and precision of vocabulary</td>
-            <td><span class="tag tag-blue">25%</span></td>
-          </tr>
-          <tr>
-            <td><strong>Discourse Management</strong></td>
-            <td>Coherence, use of linking words, length of contribution, relevance</td>
-            <td><span class="tag tag-blue">25%</span></td>
-          </tr>
-          <tr>
-            <td><strong>Pronunciation</strong></td>
-            <td>Clarity, stress, intonation; understandable to L1 and L2 listeners</td>
-            <td><span class="tag tag-blue">25%</span></td>
-          </tr>
-          <tr>
-            <td><strong>Interactive Communication</strong></td>
-            <td>Turn-taking, initiating, responding, keeping conversation going</td>
-            <td><span class="tag tag-blue">25%</span></td>
-          </tr>
+          <tr><td><strong>Grammar &amp; Vocabulary</strong></td><td>Range and accuracy of grammar; breadth and precision of vocabulary</td><td><span class="tag tag-blue">25%</span></td></tr>
+          <tr><td><strong>Discourse Management</strong></td><td>Coherence, use of linking words, length of contribution, relevance</td><td><span class="tag tag-blue">25%</span></td></tr>
+          <tr><td><strong>Pronunciation</strong></td><td>Clarity, stress, intonation; understandable to L1 and L2 listeners</td><td><span class="tag tag-blue">25%</span></td></tr>
+          <tr><td><strong>Interactive Communication</strong></td><td>Turn-taking, initiating, responding, keeping conversation going</td><td><span class="tag tag-blue">25%</span></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="card">
-      <div class="card-title"><span class="icon">⏱️</span> Test at a Glance</div>
+      <div class="card-title"><span class="icon">&#9203;</span> Test at a Glance</div>
       <div class="two-col">
         <div>
           <div style="font-size:0.85rem;color:var(--gray-500);margin-bottom:12px;">Total speaking time: <strong>14 minutes</strong> (per candidate pair)</div>
           <ul class="tips-list">
-            <li><span class="tip-icon">✅</span> Always support your answers with reasons and examples</li>
-            <li><span class="tip-icon">✅</span> Use a wide range of vocabulary and grammar structures</li>
-            <li><span class="tip-icon">✅</span> Keep talking — silence costs marks</li>
-            <li><span class="tip-icon">✅</span> Listen and respond to your partner actively</li>
-            <li><span class="tip-icon">✅</span> It's okay to self-correct; it shows awareness</li>
+            <li><span class="tip-icon">&#9989;</span> Always support your answers with reasons and examples</li>
+            <li><span class="tip-icon">&#9989;</span> Use a wide range of vocabulary and grammar structures</li>
+            <li><span class="tip-icon">&#9989;</span> Keep talking &mdash; silence costs marks</li>
+            <li><span class="tip-icon">&#9989;</span> Listen and respond to your partner actively</li>
+            <li><span class="tip-icon">&#9989;</span> It's okay to self-correct; it shows awareness</li>
           </ul>
         </div>
         <div>
           <ul class="tips-list">
-            <li><span class="tip-icon">❌</span> Don't just describe — compare, speculate and evaluate</li>
-            <li><span class="tip-icon">❌</span> Don't dominate in Parts 3 & 4 — invite your partner</li>
-            <li><span class="tip-icon">❌</span> Don't memorise scripted answers — they sound unnatural</li>
-            <li><span class="tip-icon">❌</span> Don't rush — pace yourself and be clear</li>
-            <li><span class="tip-icon">❌</span> Don't panic about occasional errors — fluency matters more</li>
+            <li><span class="tip-icon">&#10060;</span> Don't just describe &mdash; compare, speculate and evaluate</li>
+            <li><span class="tip-icon">&#10060;</span> Don't dominate in Parts 3 &amp; 4 &mdash; invite your partner</li>
+            <li><span class="tip-icon">&#10060;</span> Don't memorise scripted answers &mdash; they sound unnatural</li>
+            <li><span class="tip-icon">&#10060;</span> Don't rush &mdash; pace yourself and be clear</li>
+            <li><span class="tip-icon">&#10060;</span> Don't panic about occasional errors &mdash; fluency matters more</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════ PART 1 ═══════════════════════════ -->
   <div class="part-panel" id="panel-part1">
     <div class="part-header theme-blue">
       <div class="part-number">1</div>
@@ -707,12 +634,10 @@
         <p>The examiner asks you personal questions about yourself, your life, interests and opinions. This is a warm-up and lasts about <strong>2 minutes</strong>.</p>
       </div>
     </div>
-
-    <!-- Timer -->
     <div class="card">
-      <div class="card-title"><span class="icon">⏱️</span> Timer — 2 minutes</div>
+      <div class="card-title"><span class="icon">&#9203;</span> Timer &mdash; 2 minutes</div>
       <div class="timer-card">
-        <div class="timer-ring-wrap" id="p1-ring-wrap">
+        <div class="timer-ring-wrap">
           <svg class="timer-ring-svg" width="120" height="120" viewBox="0 0 120 120">
             <circle class="timer-ring-bg" cx="60" cy="60" r="50"/>
             <circle class="timer-ring-fill" id="p1-ring" cx="60" cy="60" r="50"/>
@@ -723,35 +648,31 @@
           </div>
         </div>
         <div class="timer-controls">
-          <button class="btn btn-success" onclick="startTimer('p1', 120)">▶ Start</button>
-          <button class="btn btn-warning" onclick="pauseTimer('p1')">⏸ Pause</button>
-          <button class="btn btn-outline" onclick="resetTimer('p1', 120)">↺ Reset</button>
+          <button class="btn btn-success" onclick="startTimer('p1', 120)">&#9654; Start</button>
+          <button class="btn btn-warning" onclick="pauseTimer('p1')">&#9208; Pause</button>
+          <button class="btn btn-outline" onclick="resetTimer('p1', 120)">&#8635; Reset</button>
         </div>
       </div>
     </div>
-
-    <!-- Question generator -->
     <div class="card">
-      <div class="card-title"><span class="icon">❓</span> Practice Questions</div>
+      <div class="card-title"><span class="icon">&#10067;</span> Practice Questions</div>
       <div class="tab-bar">
         <button class="tab-btn active" onclick="switchTab('p1t','topics')">By Topic</button>
         <button class="tab-btn" onclick="switchTab('p1t','random')">Random</button>
       </div>
-
       <div class="tab-panel active" id="p1t-topics">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;" id="p1-topic-btns"></div>
         <div class="question-box" id="p1-topic-q">Select a topic above to see questions.</div>
         <ul class="q-list" id="p1-q-list"></ul>
       </div>
-
       <div class="tab-panel" id="p1t-random">
         <div class="question-box" id="p1-rand-q" style="font-size:1.15rem;">
           Press the button below to get a random question.
           <span class="question-counter" id="p1-rand-count"></span>
         </div>
-        <div style="display:flex;gap:10px;margin-top:0;">
-          <button class="btn btn-primary" onclick="randomQuestion()">🎲 Random question</button>
-          <button class="btn btn-outline" onclick="markAnswered()">✓ Answered</button>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-primary" onclick="randomQuestion()">&#127922; Random question</button>
+          <button class="btn btn-outline" onclick="markAnswered()">&#10003; Answered</button>
         </div>
         <div class="progress-wrap" style="margin-top:14px;">
           <div class="progress-bar"><div class="progress-fill" id="p1-progress" style="width:0%"></div></div>
@@ -759,27 +680,24 @@
         </div>
       </div>
     </div>
-
-    <!-- Tips -->
     <div class="two-col">
       <div class="card">
-        <div class="card-title"><span class="icon">💡</span> Key Tips</div>
+        <div class="card-title"><span class="icon">&#128161;</span> Key Tips</div>
         <ul class="tips-list">
-          <li><span class="tip-icon">🎯</span> Give <strong>extended answers</strong> — don't just say yes/no</li>
-          <li><span class="tip-icon">🎯</span> Add a reason, example or extra detail</li>
-          <li><span class="tip-icon">🎯</span> Use natural fillers: <em>Well, actually, To be honest…</em></li>
-          <li><span class="tip-icon">🎯</span> Show your personality — the examiner wants to know you</li>
-          <li><span class="tip-icon">🎯</span> Correct yourself naturally if needed</li>
+          <li><span class="tip-icon">&#127919;</span> Give <strong>extended answers</strong> &mdash; don't just say yes/no</li>
+          <li><span class="tip-icon">&#127919;</span> Add a reason, example or extra detail</li>
+          <li><span class="tip-icon">&#127919;</span> Use natural fillers: <em>Well, actually, To be honest&hellip;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Show your personality &mdash; the examiner wants to know you</li>
+          <li><span class="tip-icon">&#127919;</span> Correct yourself naturally if needed</li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-title"><span class="icon">🗣️</span> Useful Language</div>
+        <div class="card-title"><span class="icon">&#128483;</span> Useful Language</div>
         <div class="vocab-chips" id="p1-vocab"></div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════ PART 2 ═══════════════════════════ -->
   <div class="part-panel" id="panel-part2">
     <div class="part-header theme-green">
       <div class="part-number">2</div>
@@ -788,10 +706,8 @@
         <p>You are given <strong>two photographs</strong> and must compare them, speculate about the situations, and answer a focus question. You have <strong>1 minute</strong>. Your partner then comments briefly (30 seconds).</p>
       </div>
     </div>
-
-    <!-- Timer -->
     <div class="card">
-      <div class="card-title"><span class="icon">⏱️</span> Timer</div>
+      <div class="card-title"><span class="icon">&#9203;</span> Timer</div>
       <div class="timer-card">
         <div class="timer-ring-wrap">
           <svg class="timer-ring-svg" width="120" height="120" viewBox="0 0 120 120">
@@ -800,69 +716,62 @@
           </svg>
           <div class="timer-ring-text">
             <div class="timer-ring-time" id="p2-time">1:00</div>
-            <div class="timer-ring-sub" id="p2-sub">long turn</div>
+            <div class="timer-ring-sub">long turn</div>
           </div>
         </div>
         <div>
           <div style="margin-bottom:10px;color:var(--gray-500);font-size:0.85rem;">Select timer mode:</div>
           <div class="timer-controls" style="flex-direction:column;align-items:flex-start;gap:8px;">
             <div style="display:flex;gap:8px;">
-              <button class="btn btn-success" onclick="startTimer('p2',60)">▶ 1 min (Long Turn)</button>
-              <button class="btn btn-outline" onclick="startTimer('p2',30)">▶ 30s (Partner Comment)</button>
+              <button class="btn btn-success" onclick="startTimer('p2',60)">&#9654; 1 min (Long Turn)</button>
+              <button class="btn btn-outline" onclick="startTimer('p2',30)">&#9654; 30s (Partner Comment)</button>
             </div>
             <div style="display:flex;gap:8px;">
-              <button class="btn btn-warning" onclick="pauseTimer('p2')">⏸ Pause</button>
-              <button class="btn btn-outline" onclick="resetTimer('p2',60)">↺ Reset</button>
+              <button class="btn btn-warning" onclick="pauseTimer('p2')">&#9208; Pause</button>
+              <button class="btn btn-outline" onclick="resetTimer('p2',60)">&#8635; Reset</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Photo task generator -->
     <div class="card">
-      <div class="card-title"><span class="icon">🖼️</span> Photo Task Generator</div>
+      <div class="card-title"><span class="icon">&#128444;</span> Photo Task Generator</div>
       <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
-        <button class="btn btn-primary" onclick="newPhotoTask()">🎲 New Task</button>
+        <button class="btn btn-primary" onclick="newPhotoTask()">&#127922; New Task</button>
         <div id="p2-topic-display" class="badge" style="font-size:0.875rem;padding:8px 14px;"></div>
       </div>
       <div class="two-col" style="margin-bottom:16px;">
         <div class="photo-placeholder">
-          <div class="photo-icon">📷</div>
+          <div class="photo-icon">&#128247;</div>
           <div style="font-weight:700;margin-bottom:4px;" id="p2-photo1">Photo A</div>
-          <div class="photo-desc" id="p2-desc1">Press "New Task" to generate a photo scenario</div>
+          <div class="photo-desc" id="p2-desc1">Press &ldquo;New Task&rdquo; to generate a photo scenario</div>
         </div>
         <div class="photo-placeholder">
-          <div class="photo-icon">📷</div>
+          <div class="photo-icon">&#128247;</div>
           <div style="font-weight:700;margin-bottom:4px;" id="p2-photo2">Photo B</div>
-          <div class="photo-desc" id="p2-desc2">Press "New Task" to generate a photo scenario</div>
+          <div class="photo-desc" id="p2-desc2">Press &ldquo;New Task&rdquo; to generate a photo scenario</div>
         </div>
       </div>
-      <div class="question-box green" id="p2-focus-q">
-        Your focus question will appear here.
-      </div>
+      <div class="question-box green" id="p2-focus-q">Your focus question will appear here.</div>
     </div>
-
-    <!-- Structure & Language -->
     <div class="two-col">
       <div class="card">
-        <div class="card-title"><span class="icon">📐</span> 1-Minute Structure</div>
+        <div class="card-title"><span class="icon">&#128208;</span> 1-Minute Structure</div>
         <ul class="tips-list">
-          <li><span class="tip-icon">🕐</span> <strong>0–10s</strong> — Compare the main subjects/activities</li>
-          <li><span class="tip-icon">🕐</span> <strong>10–30s</strong> — Speculate about feelings / reasons</li>
-          <li><span class="tip-icon">🕐</span> <strong>30–50s</strong> — Discuss similarities and differences in detail</li>
-          <li><span class="tip-icon">🕐</span> <strong>50–60s</strong> — Answer the focus question directly</li>
+          <li><span class="tip-icon">&#128336;</span> <strong>0&ndash;10s</strong> &mdash; Compare the main subjects/activities</li>
+          <li><span class="tip-icon">&#128336;</span> <strong>10&ndash;30s</strong> &mdash; Speculate about feelings / reasons</li>
+          <li><span class="tip-icon">&#128336;</span> <strong>30&ndash;50s</strong> &mdash; Discuss similarities and differences in detail</li>
+          <li><span class="tip-icon">&#128336;</span> <strong>50&ndash;60s</strong> &mdash; Answer the focus question directly</li>
         </ul>
         <div class="feedback-note">Don't just describe! Compare, speculate and evaluate.</div>
       </div>
       <div class="card">
-        <div class="card-title"><span class="icon">📝</span> Key Language</div>
+        <div class="card-title"><span class="icon">&#128221;</span> Key Language</div>
         <div class="vocab-chips" id="p2-vocab"></div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════ PART 3 ═══════════════════════════ -->
   <div class="part-panel" id="panel-part3">
     <div class="part-header theme-amber">
       <div class="part-number">3</div>
@@ -871,10 +780,8 @@
         <p>You and your partner discuss a set of prompts arranged around a central question. First discuss all options (<strong>2 min</strong>), then decide together (<strong>1 min</strong>). Total: <strong>3 minutes</strong>.</p>
       </div>
     </div>
-
-    <!-- Timer -->
     <div class="card">
-      <div class="card-title"><span class="icon">⏱️</span> Timer</div>
+      <div class="card-title"><span class="icon">&#9203;</span> Timer</div>
       <div class="timer-card">
         <div class="timer-ring-wrap">
           <svg class="timer-ring-svg" width="120" height="120" viewBox="0 0 120 120">
@@ -883,59 +790,54 @@
           </svg>
           <div class="timer-ring-text">
             <div class="timer-ring-time" id="p3-time">2:00</div>
-            <div class="timer-ring-sub" id="p3-sub">discussion</div>
+            <div class="timer-ring-sub">discussion</div>
           </div>
         </div>
         <div>
           <div style="margin-bottom:10px;color:var(--gray-500);font-size:0.85rem;">Phase:</div>
           <div class="timer-controls" style="flex-direction:column;align-items:flex-start;gap:8px;">
             <div style="display:flex;gap:8px;">
-              <button class="btn btn-success" onclick="startTimer('p3',120)">▶ 2 min (Discussion)</button>
-              <button class="btn btn-outline" onclick="startTimer('p3',60)">▶ 1 min (Decision)</button>
+              <button class="btn btn-success" onclick="startTimer('p3',120)">&#9654; 2 min (Discussion)</button>
+              <button class="btn btn-outline" onclick="startTimer('p3',60)">&#9654; 1 min (Decision)</button>
             </div>
             <div style="display:flex;gap:8px;">
-              <button class="btn btn-warning" onclick="pauseTimer('p3')">⏸ Pause</button>
-              <button class="btn btn-outline" onclick="resetTimer('p3',120)">↺ Reset</button>
+              <button class="btn btn-warning" onclick="pauseTimer('p3')">&#9208; Pause</button>
+              <button class="btn btn-outline" onclick="resetTimer('p3',120)">&#8635; Reset</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Mind-map task -->
     <div class="card">
-      <div class="card-title"><span class="icon">🗺️</span> Task Mind-Map</div>
+      <div class="card-title"><span class="icon">&#128506;</span> Task Mind-Map</div>
       <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
-        <button class="btn btn-warning" onclick="newP3Task()">🎲 New Task</button>
-        <button class="btn btn-outline" onclick="resetDiscussed()">↺ Reset ticks</button>
-        <div class="feedback-note" style="margin-top:0;flex:1;">Click a prompt node after discussing it to mark it done ✓</div>
+        <button class="btn btn-warning" onclick="newP3Task()">&#127922; New Task</button>
+        <button class="btn btn-outline" onclick="resetDiscussed()">&#8635; Reset ticks</button>
+        <div class="feedback-note" style="margin-top:0;flex:1;">Click a prompt node after discussing it to mark it done &#10003;</div>
       </div>
       <div class="mindmap" id="p3-mindmap">
-        <div class="mindmap-center" id="p3-center">Press "New Task" to load a scenario</div>
+        <div class="mindmap-center" id="p3-center">Press &ldquo;New Task&rdquo; to load a scenario</div>
         <div class="mindmap-prompts" id="p3-prompts"></div>
       </div>
     </div>
-
-    <!-- Language -->
     <div class="two-col">
       <div class="card">
-        <div class="card-title"><span class="icon">💡</span> Key Tips</div>
+        <div class="card-title"><span class="icon">&#128161;</span> Key Tips</div>
         <ul class="tips-list">
-          <li><span class="tip-icon">🎯</span> Invite your partner: <em>"What do you think about…?"</em></li>
-          <li><span class="tip-icon">🎯</span> Build on ideas: <em>"That's a good point, and also…"</em></li>
-          <li><span class="tip-icon">🎯</span> Agree/disagree politely: <em>"I see what you mean, but…"</em></li>
-          <li><span class="tip-icon">🎯</span> Reach a decision jointly, not by just giving in</li>
-          <li><span class="tip-icon">🎯</span> Try to cover all prompts — don't dwell on one</li>
+          <li><span class="tip-icon">&#127919;</span> Invite your partner: <em>&ldquo;What do you think about&hellip;?&rdquo;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Build on ideas: <em>&ldquo;That's a good point, and also&hellip;&rdquo;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Agree/disagree politely: <em>&ldquo;I see what you mean, but&hellip;&rdquo;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Reach a decision jointly, not by just giving in</li>
+          <li><span class="tip-icon">&#127919;</span> Try to cover all prompts &mdash; don't dwell on one</li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-title"><span class="icon">🗣️</span> Interaction Language</div>
+        <div class="card-title"><span class="icon">&#128483;</span> Interaction Language</div>
         <div class="vocab-chips" id="p3-vocab"></div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════ PART 4 ═══════════════════════════ -->
   <div class="part-panel" id="panel-part4">
     <div class="part-header theme-purple">
       <div class="part-number">4</div>
@@ -944,10 +846,8 @@
         <p>The examiner asks broader questions linked to the Part 3 topic. Both candidates give extended answers, agree, disagree and discuss. Lasts about <strong>4 minutes</strong>.</p>
       </div>
     </div>
-
-    <!-- Timer -->
     <div class="card">
-      <div class="card-title"><span class="icon">⏱️</span> Timer — 4 minutes</div>
+      <div class="card-title"><span class="icon">&#9203;</span> Timer &mdash; 4 minutes</div>
       <div class="timer-card">
         <div class="timer-ring-wrap">
           <svg class="timer-ring-svg" width="120" height="120" viewBox="0 0 120 120">
@@ -960,16 +860,14 @@
           </div>
         </div>
         <div class="timer-controls">
-          <button class="btn btn-success" onclick="startTimer('p4',240)">▶ Start (4 min)</button>
-          <button class="btn btn-warning" onclick="pauseTimer('p4')">⏸ Pause</button>
-          <button class="btn btn-outline" onclick="resetTimer('p4',240)">↺ Reset</button>
+          <button class="btn btn-success" onclick="startTimer('p4',240)">&#9654; Start (4 min)</button>
+          <button class="btn btn-warning" onclick="pauseTimer('p4')">&#9208; Pause</button>
+          <button class="btn btn-outline" onclick="resetTimer('p4',240)">&#8635; Reset</button>
         </div>
       </div>
     </div>
-
-    <!-- Questions by topic -->
     <div class="card">
-      <div class="card-title"><span class="icon">❓</span> Discussion Questions</div>
+      <div class="card-title"><span class="icon">&#10067;</span> Discussion Questions</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;" id="p4-topic-btns"></div>
       <div class="question-box purple" id="p4-current-q">
         Select a topic above, then pick a question.
@@ -977,28 +875,24 @@
       </div>
       <ul class="q-list" id="p4-q-list"></ul>
     </div>
-
-    <!-- Language bank -->
     <div class="two-col">
       <div class="card">
-        <div class="card-title"><span class="icon">💡</span> Key Tips</div>
+        <div class="card-title"><span class="icon">&#128161;</span> Key Tips</div>
         <ul class="tips-list">
-          <li><span class="tip-icon">🎯</span> Give opinions with reasons: <em>"I believe… because…"</em></li>
-          <li><span class="tip-icon">🎯</span> Speculate: <em>"It's possible that… / This might be because…"</em></li>
-          <li><span class="tip-icon">🎯</span> Refer to your partner: <em>"I agree with X, although…"</em></li>
-          <li><span class="tip-icon">🎯</span> Don't just say "I agree/disagree" — explain why</li>
-          <li><span class="tip-icon">🎯</span> Use abstract vocabulary and complex grammar</li>
+          <li><span class="tip-icon">&#127919;</span> Give opinions with reasons: <em>&ldquo;I believe&hellip; because&hellip;&rdquo;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Speculate: <em>&ldquo;It's possible that&hellip; / This might be because&hellip;&rdquo;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Refer to your partner: <em>&ldquo;I agree with X, although&hellip;&rdquo;</em></li>
+          <li><span class="tip-icon">&#127919;</span> Don't just say &ldquo;I agree/disagree&rdquo; &mdash; explain why</li>
+          <li><span class="tip-icon">&#127919;</span> Use abstract vocabulary and complex grammar</li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-title"><span class="icon">🗣️</span> Opinion & Argument Language</div>
+        <div class="card-title"><span class="icon">&#128483;</span> Opinion &amp; Argument Language</div>
         <div class="vocab-chips" id="p4-vocab"></div>
       </div>
     </div>
-
-    <!-- Self-assessment -->
     <div class="card">
-      <div class="card-title"><span class="icon">⭐</span> Self-Assessment</div>
+      <div class="card-title"><span class="icon">&#11088;</span> Self-Assessment</div>
       <p style="font-size:0.875rem;color:var(--gray-500);margin-bottom:16px;">Rate your performance after each practice session (click the stars):</p>
       <div class="score-grid" id="score-grid"></div>
       <div class="feedback-note" id="score-feedback">Click the stars above to rate your performance.</div>
@@ -1008,10 +902,6 @@
 </main>
 
 <script>
-// ══════════════════════════════════════════════
-//  DATA
-// ══════════════════════════════════════════════
-
 const P1_TOPICS = {
   'Home & Family': [
     'Where are you from and what do you like most about your hometown?',
@@ -1044,125 +934,57 @@ const P1_TOPICS = {
 };
 
 const P1_VOCAB = [
-  "Actually, …", "Well, to be honest, …", "I'd say that …",
-  "What I mean is …", "For instance, …", "I'm particularly interested in …",
-  "It really depends on …", "In my experience, …", "As far as I'm concerned, …",
-  "Not only … but also …",
+  'Actually, …', 'Well, to be honest, …', "I'd say that …",
+  'What I mean is …', 'For instance, …', "I'm particularly interested in …",
+  'It really depends on …', 'In my experience, …', "As far as I'm concerned, …",
+  'Not only … but also …',
 ];
 
 const P2_TASKS = [
-  {
-    topic: 'Ways of spending free time',
-    photo1: 'People rock-climbing outdoors on a sunny day',
-    photo2: 'A person reading a book alone at home on a rainy evening',
-    question: 'Which activity do you think gives people more satisfaction?',
-  },
-  {
-    topic: 'Ways of communicating',
-    photo1: 'A group of friends chatting face-to-face in a café',
-    photo2: 'Someone video-calling family members on a laptop',
-    question: 'Why might people prefer one form of communication over the other?',
-  },
-  {
-    topic: 'Learning new things',
-    photo1: 'A student attending a lecture in a university classroom',
-    photo2: 'Someone watching an online tutorial on their tablet at home',
-    question: 'Which way of learning do you think is more effective?',
-  },
-  {
-    topic: 'Environmental issues',
-    photo1: 'A community group picking up litter in a local park',
-    photo2: 'A protestor holding a climate change sign at a demonstration',
-    question: 'How important do you think each approach is for protecting the environment?',
-  },
-  {
-    topic: 'Shopping',
-    photo1: 'A busy market with people choosing fresh fruit and vegetables',
-    photo2: 'Someone scrolling through an online shopping app on their phone',
-    question: 'What advantages might each type of shopping have for people?',
-  },
-  {
-    topic: 'Healthy lifestyle',
-    photo1: 'A person jogging along a riverside path early in the morning',
-    photo2: 'A family cooking a healthy meal together in the kitchen',
-    question: 'Which activity do you think is more important for staying healthy?',
-  },
-  {
-    topic: 'Entertainment',
-    photo1: 'An audience watching a live theatre performance',
-    photo2: 'A group of friends watching a film at a cinema',
-    question: 'What kind of experience might each activity offer to people?',
-  },
-  {
-    topic: 'Work environments',
-    photo1: 'An open-plan office with people working at desks',
-    photo2: 'A person working from home with a laptop and coffee',
-    question: 'What are the challenges of each working environment?',
-  },
-  {
-    topic: 'Technology',
-    photo1: 'Children using tablets in a modern school classroom',
-    photo2: 'A teacher writing on a traditional blackboard',
-    question: 'How do you think each approach affects children's learning?',
-  },
-  {
-    topic: 'Transport',
-    photo1: 'A crowded city metro station with commuters rushing',
-    photo2: 'A family loading bags into a car for a road trip',
-    question: 'What factors might influence people's choice of transport?',
-  },
+  { topic: 'Ways of spending free time', photo1: 'People rock-climbing outdoors on a sunny day', photo2: 'A person reading a book alone at home on a rainy evening', question: 'Which activity do you think gives people more satisfaction?' },
+  { topic: 'Ways of communicating', photo1: 'A group of friends chatting face-to-face in a café', photo2: 'Someone video-calling family members on a laptop', question: 'Why might people prefer one form of communication over the other?' },
+  { topic: 'Learning new things', photo1: 'A student attending a lecture in a university classroom', photo2: 'Someone watching an online tutorial on their tablet at home', question: 'Which way of learning do you think is more effective?' },
+  { topic: 'Environmental issues', photo1: 'A community group picking up litter in a local park', photo2: 'A protestor holding a climate change sign at a demonstration', question: 'How important do you think each approach is for protecting the environment?' },
+  { topic: 'Shopping', photo1: 'A busy market with people choosing fresh fruit and vegetables', photo2: 'Someone scrolling through an online shopping app on their phone', question: 'What advantages might each type of shopping have for people?' },
+  { topic: 'Healthy lifestyle', photo1: 'A person jogging along a riverside path early in the morning', photo2: 'A family cooking a healthy meal together in the kitchen', question: 'Which activity do you think is more important for staying healthy?' },
+  { topic: 'Entertainment', photo1: 'An audience watching a live theatre performance', photo2: 'A group of friends watching a film at a cinema', question: 'What kind of experience might each activity offer to people?' },
+  { topic: 'Work environments', photo1: 'An open-plan office with people working at desks', photo2: 'A person working from home with a laptop and coffee', question: 'What are the challenges of each working environment?' },
+  { topic: 'Technology', photo1: 'Children using tablets in a modern school classroom', photo2: 'A teacher writing on a traditional blackboard', question: "How do you think each approach affects children's learning?" },
+  { topic: 'Transport', photo1: 'A crowded city metro station with commuters rushing', photo2: 'A family loading bags into a car for a road trip', question: "What factors might influence people's choice of transport?" },
 ];
 
 const P2_VOCAB = [
-  "Both photos show …", "While in the first photo … in the second …",
-  "The main difference is …", "They seem to be …ing",
-  "I imagine they feel …", "It's possible that …",
-  "One similarity is …", "On the other hand, …",
-  "This could be because …", "It's hard to tell, but …",
+  'Both photos show …', 'While in the first photo … in the second …',
+  'The main difference is …', 'They seem to be …ing',
+  'I imagine they feel …', "It's possible that …",
+  'One similarity is …', 'On the other hand, …',
+  'This could be because …', "It's hard to tell, but …",
   "To answer the question, I'd say …",
 ];
 
 const P3_TASKS = [
-  {
-    center: 'What could schools do to encourage students to live more healthily?',
-    prompts: ['healthy school lunches', 'more PE lessons', 'wellbeing classes', 'banning junk food', 'school sports clubs', 'mental health support'],
-  },
-  {
-    center: 'What could be done to make cities better places to live?',
-    prompts: ['more green spaces', 'better public transport', 'cycling lanes', 'affordable housing', 'cultural events', 'reduce traffic'],
-  },
-  {
-    center: 'Why do people choose to learn a foreign language?',
-    prompts: ['career opportunities', 'travel', 'cultural interest', 'social media', 'moving abroad', 'academic study'],
-  },
-  {
-    center: 'What could be done to reduce the amount of plastic waste?',
-    prompts: ['plastic bag charges', 'reusable packaging', 'recycling education', 'government laws', 'company responsibility', 'consumer habits'],
-  },
-  {
-    center: 'What makes a good friend?',
-    prompts: ['loyalty', 'honesty', 'shared interests', 'support in hard times', 'sense of humour', 'good listener'],
-  },
-  {
-    center: 'How could technology be used to improve healthcare?',
-    prompts: ['remote consultations', 'AI diagnosis', 'electronic records', 'wearable devices', 'online information', 'robot surgery'],
-  },
+  { center: 'What could schools do to encourage students to live more healthily?', prompts: ['healthy school lunches', 'more PE lessons', 'wellbeing classes', 'banning junk food', 'school sports clubs', 'mental health support'] },
+  { center: 'What could be done to make cities better places to live?', prompts: ['more green spaces', 'better public transport', 'cycling lanes', 'affordable housing', 'cultural events', 'reduce traffic'] },
+  { center: 'Why do people choose to learn a foreign language?', prompts: ['career opportunities', 'travel', 'cultural interest', 'social media', 'moving abroad', 'academic study'] },
+  { center: 'What could be done to reduce the amount of plastic waste?', prompts: ['plastic bag charges', 'reusable packaging', 'recycling education', 'government laws', 'company responsibility', 'consumer habits'] },
+  { center: 'What makes a good friend?', prompts: ['loyalty', 'honesty', 'shared interests', 'support in hard times', 'sense of humour', 'good listener'] },
+  { center: 'How could technology be used to improve healthcare?', prompts: ['remote consultations', 'AI diagnosis', 'electronic records', 'wearable devices', 'online information', 'robot surgery'] },
 ];
 
 const P3_VOCAB = [
-  "What do you think about …?", "Shall we start with …?",
-  "I think … is more important because …", "Do you agree?",
+  'What do you think about …?', 'Shall we start with …?',
+  'I think … is more important because …', 'Do you agree?',
   "That's a good point.", "I'm not sure I agree …",
-  "Let's move on to …", "So, which shall we choose?",
-  "We seem to agree that …", "I see what you mean, but …",
-  "It depends on …", "On balance, I think …",
+  "Let's move on to …", 'So, which shall we choose?',
+  'We seem to agree that …', 'I see what you mean, but …',
+  'It depends on …', 'On balance, I think …',
 ];
 
 const P4_TOPICS = {
   'Health & Lifestyle': [
     'How much responsibility do individuals have for their own health?',
     'Do you think governments should do more to encourage healthy lifestyles?',
-    'How has people\'s attitude to exercise changed in recent decades?',
+    "How has people's attitude to exercise changed in recent decades?",
     'Is it possible to live a healthy life in a busy modern city?',
     'Do you think social media has a positive or negative effect on mental health?',
     'Should unhealthy food and drinks be taxed more heavily? Why / why not?',
@@ -1186,19 +1008,15 @@ const P4_TOPICS = {
 };
 
 const P4_VOCAB = [
-  "In my opinion, …", "I strongly believe that …",
-  "One could argue that …", "It seems to me that …",
-  "This is a complex issue because …", "On the one hand … on the other …",
+  'In my opinion, …', 'I strongly believe that …',
+  'One could argue that …', 'It seems to me that …',
+  'This is a complex issue because …', 'On the one hand … on the other …',
   "I'd go further and say …", "That's an interesting point, though …",
-  "The evidence suggests …", "To a certain extent, …",
-  "I partially agree, however …", "Ultimately, …",
+  'The evidence suggests …', 'To a certain extent, …',
+  'I partially agree, however …', 'Ultimately, …',
 ];
 
 const SCORE_CRITERIA = ['Grammar & Vocab', 'Discourse', 'Pronunciation', 'Interaction'];
-
-// ══════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════
 
 let timers = {};
 let p1Answered = new Set();
@@ -1209,10 +1027,6 @@ let p3Discussed = new Set();
 let p4TopicActive = null;
 let scores = { 'Grammar & Vocab': 0, Discourse: 0, Pronunciation: 0, Interaction: 0 };
 
-// ══════════════════════════════════════════════
-//  NAVIGATION
-// ══════════════════════════════════════════════
-
 function showPanel(id, btn) {
   document.querySelectorAll('.part-panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
@@ -1221,21 +1035,14 @@ function showPanel(id, btn) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ══════════════════════════════════════════════
-//  TIMER
-// ══════════════════════════════════════════════
-
-const RING_CIRCUMFERENCE = 314; // 2πr ≈ 2π×50
+const RING_CIRCUMFERENCE = 314;
 
 function startTimer(id, totalSecs) {
-  if (timers[id]) { clearInterval(timers[id].interval); }
-  const el    = document.getElementById(id + '-time');
-  const ring  = document.getElementById(id + '-ring');
-  let remaining = (timers[id] && timers[id].remaining != null && timers[id].paused)
-                  ? timers[id].remaining
-                  : totalSecs;
+  if (timers[id]) clearInterval(timers[id].interval);
+  const el = document.getElementById(id + '-time');
+  const ring = document.getElementById(id + '-ring');
+  let remaining = (timers[id] && timers[id].remaining != null && timers[id].paused) ? timers[id].remaining : totalSecs;
   timers[id] = { interval: null, remaining, total: totalSecs, paused: false };
-
   function tick() {
     if (timers[id].remaining <= 0) {
       clearInterval(timers[id].interval);
@@ -1253,44 +1060,30 @@ function startTimer(id, totalSecs) {
       ring.style.stroke = r <= 10 ? 'var(--red)' : r <= 30 ? 'var(--amber)' : 'var(--blue)';
     }
   }
-
   tick();
   timers[id].interval = setInterval(tick, 1000);
 }
 
 function pauseTimer(id) {
   if (!timers[id]) return;
-  if (timers[id].paused) {
-    startTimer(id, timers[id].total);
-  } else {
-    clearInterval(timers[id].interval);
-    timers[id].paused = true;
-  }
+  if (timers[id].paused) { startTimer(id, timers[id].total); }
+  else { clearInterval(timers[id].interval); timers[id].paused = true; }
 }
 
 function resetTimer(id, totalSecs) {
   if (timers[id]) clearInterval(timers[id].interval);
   timers[id] = null;
-  const el   = document.getElementById(id + '-time');
+  const el = document.getElementById(id + '-time');
   const ring = document.getElementById(id + '-ring');
   if (el) el.textContent = fmt(totalSecs);
   if (ring) { ring.style.strokeDashoffset = 0; ring.style.stroke = 'var(--blue)'; }
 }
 
-function fmt(s) {
-  return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
-}
-
-// ══════════════════════════════════════════════
-//  PART 1
-// ══════════════════════════════════════════════
+function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
 
 function initPart1() {
-  // Build all questions flat list
   p1AllQs = [];
   Object.entries(P1_TOPICS).forEach(([topic, qs]) => qs.forEach(q => p1AllQs.push({ topic, q })));
-
-  // Topic buttons
   const btnWrap = document.getElementById('p1-topic-btns');
   Object.keys(P1_TOPICS).forEach(topic => {
     const b = document.createElement('button');
@@ -1299,8 +1092,6 @@ function initPart1() {
     b.onclick = () => showP1Topic(topic, b);
     btnWrap.appendChild(b);
   });
-
-  // Vocab chips
   renderChips('p1-vocab', P1_VOCAB);
 }
 
@@ -1313,7 +1104,7 @@ function showP1Topic(topic, btn) {
   list.innerHTML = '';
   qs.forEach((q, i) => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="q-num">${i + 1}</span>${q}`;
+    li.innerHTML = '<span class="q-num">' + (i+1) + '</span>' + q;
     li.onclick = () => document.getElementById('p1-topic-q').textContent = q;
     list.appendChild(li);
   });
@@ -1321,12 +1112,11 @@ function showP1Topic(topic, btn) {
 
 function randomQuestion() {
   const remaining = p1AllQs.filter((_, i) => !p1Answered.has(i));
-  if (remaining.length === 0) { showToast('You have answered all 20 questions! 🎉'); return; }
+  if (remaining.length === 0) { showToast('You have answered all 20 questions! \U0001f389'); return; }
   const pick = remaining[Math.floor(Math.random() * remaining.length)];
-  const idx  = p1AllQs.indexOf(pick);
+  const idx = p1AllQs.indexOf(pick);
   document.getElementById('p1-rand-q').textContent = pick.q;
   document.getElementById('p1-rand-count').textContent = pick.topic;
-  // Store current idx
   window._p1CurrentIdx = idx;
 }
 
@@ -1335,14 +1125,10 @@ function markAnswered() {
   p1Answered.add(window._p1CurrentIdx);
   const pct = Math.round(p1Answered.size / p1AllQs.length * 100);
   document.getElementById('p1-progress').style.width = pct + '%';
-  document.getElementById('p1-prog-label').textContent = `${p1Answered.size} / ${p1AllQs.length} answered`;
+  document.getElementById('p1-prog-label').textContent = p1Answered.size + ' / ' + p1AllQs.length + ' answered';
   showToast('Marked as answered ✓');
   randomQuestion();
 }
-
-// ══════════════════════════════════════════════
-//  PART 2
-// ══════════════════════════════════════════════
 
 function initPart2() {
   renderChips('p2-vocab', P2_VOCAB);
@@ -1354,16 +1140,11 @@ function newPhotoTask() {
   do { idx = Math.floor(Math.random() * P2_TASKS.length); } while (idx === p2TaskIndex && P2_TASKS.length > 1);
   p2TaskIndex = idx;
   const task = P2_TASKS[idx];
-  document.getElementById('p2-topic-display').textContent = '📌 ' + task.topic;
+  document.getElementById('p2-topic-display').textContent = '\u{1f4cc} ' + task.topic;
   document.getElementById('p2-desc1').textContent = task.photo1;
   document.getElementById('p2-desc2').textContent = task.photo2;
-  document.getElementById('p2-focus-q').innerHTML =
-    `<strong>Focus question:</strong> ${task.question}`;
+  document.getElementById('p2-focus-q').innerHTML = '<strong>Focus question:</strong> ' + task.question;
 }
-
-// ══════════════════════════════════════════════
-//  PART 3
-// ══════════════════════════════════════════════
 
 function initPart3() {
   renderChips('p3-vocab', P3_VOCAB);
@@ -1391,7 +1172,7 @@ function renderMindmap() {
     node.onclick = () => {
       p3Discussed.has(i) ? p3Discussed.delete(i) : p3Discussed.add(i);
       renderMindmap();
-      if (p3Discussed.size === task.prompts.length) showToast('All prompts discussed! Time to decide. 🎯');
+      if (p3Discussed.size === task.prompts.length) showToast('All prompts discussed! Time to decide. \u{1f3af}');
     };
     wrap.appendChild(node);
   });
@@ -1399,14 +1180,8 @@ function renderMindmap() {
 
 function resetDiscussed() { p3Discussed.clear(); renderMindmap(); }
 
-// ══════════════════════════════════════════════
-//  PART 4
-// ══════════════════════════════════════════════
-
 function initPart4() {
   renderChips('p4-vocab', P4_VOCAB);
-
-  // Topic buttons
   const btnWrap = document.getElementById('p4-topic-btns');
   Object.keys(P4_TOPICS).forEach(topic => {
     const b = document.createElement('button');
@@ -1415,18 +1190,15 @@ function initPart4() {
     b.onclick = () => showP4Topic(topic, b);
     btnWrap.appendChild(b);
   });
-
-  // Self-assessment
   const grid = document.getElementById('score-grid');
   SCORE_CRITERIA.forEach(c => {
     const item = document.createElement('div');
     item.className = 'score-item';
-    item.innerHTML = `<div class="score-label">${c}</div><div class="score-stars" id="stars-${c.replace(/ &/g,'').replace(/ /g,'')}">
-      ${[1,2,3,4,5].map(n => `<span class="star" data-c="${c}" data-n="${n}">⭐</span>`).join('')}
-    </div>`;
+    const key = c.replace(/ &/g,'').replace(/ /g,'');
+    item.innerHTML = '<div class="score-label">' + c + '</div><div class="score-stars" id="stars-' + key + '">' +
+      [1,2,3,4,5].map(n => '<span class="star" data-c="' + c + '" data-n="' + n + '">⭐</span>').join('') + '</div>';
     grid.appendChild(item);
   });
-
   document.querySelectorAll('.score-stars .star').forEach(star => {
     star.onclick = () => {
       const c = star.dataset.c, n = parseInt(star.dataset.n);
@@ -1443,15 +1215,15 @@ function showP4Topic(topic, btn) {
   p4TopicActive = topic;
   const qs = P4_TOPICS[topic];
   document.getElementById('p4-current-q').innerHTML = qs[0];
-  document.getElementById('p4-q-counter').textContent = `1 / ${qs.length}`;
+  document.getElementById('p4-q-counter').textContent = '1 / ' + qs.length;
   const list = document.getElementById('p4-q-list');
   list.innerHTML = '';
   qs.forEach((q, i) => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="q-num">${i + 1}</span>${q}`;
+    li.innerHTML = '<span class="q-num">' + (i+1) + '</span>' + q;
     li.onclick = () => {
       document.getElementById('p4-current-q').innerHTML = q;
-      document.getElementById('p4-q-counter').textContent = `${i + 1} / ${qs.length}`;
+      document.getElementById('p4-q-counter').textContent = (i+1) + ' / ' + qs.length;
     };
     list.appendChild(li);
   });
@@ -1459,40 +1231,30 @@ function showP4Topic(topic, btn) {
 
 function updateStars(c, n) {
   const key = c.replace(/ &/g,'').replace(/ /g,'');
-  document.querySelectorAll(`#stars-${key} .star`).forEach(s => {
+  document.querySelectorAll('#stars-' + key + ' .star').forEach(s => {
     s.classList.toggle('filled', parseInt(s.dataset.n) <= n);
   });
 }
 
 function updateFeedback() {
   const vals = Object.values(scores);
-  const avg  = vals.reduce((a, b) => a + b, 0) / vals.length;
-  const msgs = [
-    '', 'Keep practising — focus on speaking more fluently and naturally.',
+  const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const msgs = ['', 'Keep practising — focus on speaking more fluently and naturally.',
     'Good start! Work on extending your answers and using varied vocabulary.',
     'Solid effort! Push for more complex grammar and clearer discourse linking.',
     'Great work! Aim for consistent accuracy and wider vocabulary range.',
-    'Excellent! You\'re performing at B2+ level — well done! 🎉',
-  ];
-  document.getElementById('score-feedback').textContent = avg > 0 ? msgs[Math.round(avg)] : msgs[0] || 'Click the stars above to rate your performance.';
+    "Excellent! You're performing at B2+ level — well done! \U0001f389"];
+  document.getElementById('score-feedback').textContent = avg > 0 ? msgs[Math.round(avg)] : 'Click the stars above to rate your performance.';
 }
 
-// ══════════════════════════════════════════════
-//  TABS
-// ══════════════════════════════════════════════
-
 function switchTab(prefix, name) {
-  document.querySelectorAll(`[id^="${prefix}-"]`).forEach(el => el.classList.remove('active'));
-  document.getElementById(`${prefix}-${name}`).classList.add('active');
-  document.querySelectorAll(`.tab-btn`).forEach(b => {
+  document.querySelectorAll('[id^="' + prefix + '-"]').forEach(el => el.classList.remove('active'));
+  document.getElementById(prefix + '-' + name).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
     if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(prefix)) b.classList.remove('active');
   });
   event.target.classList.add('active');
 }
-
-// ══════════════════════════════════════════════
-//  VOCAB CHIPS
-// ══════════════════════════════════════════════
 
 function renderChips(containerId, phrases) {
   const wrap = document.getElementById(containerId);
@@ -1505,15 +1267,11 @@ function renderChips(containerId, phrases) {
     chip.title = 'Click to copy';
     chip.onclick = () => {
       navigator.clipboard.writeText(p).catch(() => {});
-      showToast(`Copied: "${p}"`);
+      showToast('Copied: "' + p + '"');
     };
     wrap.appendChild(chip);
   });
 }
-
-// ══════════════════════════════════════════════
-//  TOAST
-// ══════════════════════════════════════════════
 
 let toastTimeout;
 function showToast(msg) {
@@ -1524,14 +1282,10 @@ function showToast(msg) {
   toastTimeout = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ══════════════════════════════════════════════
-//  BOOT
-// ══════════════════════════════════════════════
-
 initPart1();
 initPart2();
 initPart3();
 initPart4();
-</script>
+<\/script>
 </body>
 </html>
