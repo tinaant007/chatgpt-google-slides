@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book an English Lesson</title>
+<style>
+  :root {
+    --blue: #1a56db;
+    --blue-dark: #1240a8;
+    --blue-light: #e8f0fe;
+    --green: #0e9f6e;
+    --green-light: #def7ec;
+    --red: #e02424;
+    --red-light: #fde8e8;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.10);
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #1a56db 0%, #7c3aed 100%);
+    color: white;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  header h1 { font-size: 28px; margin-bottom: 8px; }
+  header p { opacity: 0.9; font-size: 15px; }
+
+  main {
+    max-width: 720px;
+    margin: -28px auto 40px;
+    padding: 0 16px;
+  }
+
+  .card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .notice {
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .notice.error { background: var(--red-light); color: var(--red); }
+  .notice code {
+    background: rgba(0,0,0,0.06);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .tz-note {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+  }
+
+  .day-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .day-btn {
+    flex: 0 0 auto;
+    border: 1px solid var(--gray-200);
+    background: white;
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    color: var(--gray-700);
+    min-width: 68px;
+  }
+  .day-btn .dow { font-weight: 600; display: block; }
+  .day-btn .dom { font-size: 16px; font-weight: 700; display: block; margin-top: 2px; }
+  .day-btn.selected { border-color: var(--blue); background: var(--blue-light); color: var(--blue-dark); }
+  .day-btn.empty { opacity: 0.4; }
+  .day-btn:disabled { cursor: default; }
+
+  .slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 8px;
+  }
+  .slot-btn {
+    border: 1px solid var(--gray-200);
+    background: white;
+    border-radius: 8px;
+    padding: 10px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--gray-900);
+  }
+  .slot-btn:hover { border-color: var(--blue); }
+  .slot-btn.selected { background: var(--blue); border-color: var(--blue); color: white; }
+
+  .empty-state { color: var(--gray-500); font-size: 14px; padding: 12px 0; }
+
+  form { display: flex; flex-direction: column; gap: 14px; }
+  label { font-size: 13px; font-weight: 600; color: var(--gray-700); margin-bottom: 4px; display: block; }
+  input, textarea {
+    width: 100%;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--blue); }
+  textarea { resize: vertical; min-height: 60px; }
+
+  .selected-slot-summary {
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .selected-slot-summary strong { color: var(--blue-dark); }
+
+  button.primary {
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button.primary:hover { background: var(--blue-dark); }
+  button.primary:disabled { background: var(--gray-300); cursor: not-allowed; }
+
+  button.link {
+    background: none;
+    border: none;
+    color: var(--blue);
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    align-self: flex-start;
+  }
+
+  .success {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .success .check {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 16px;
+  }
+  .success h2 { margin-bottom: 8px; }
+  .success p { color: var(--gray-500); font-size: 14px; }
+
+  .hidden { display: none !important; }
+  .section-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="tutorHeading">Book an English Lesson</h1>
+  <p id="tutorSubheading">Pick a time that works for you — I'll see you then!</p>
+</header>
+
+<main>
+
+  <div id="setupNotice" class="card hidden">
+    <div class="notice error">
+      <strong>Setup needed:</strong> this booking page isn't connected to a calendar yet.
+      Open <code>booking-appscript.js</code>, deploy it as a Google Apps Script Web App,
+      then paste the Web App URL into <code>APPS_SCRIPT_URL</code> near the top of this
+      page's script.
+    </div>
+  </div>
+
+  <div id="loadError" class="card hidden">
+    <div class="notice error">
+      Couldn't load availability right now. Please refresh the page, or contact your
+      tutor directly. <span id="loadErrorDetail"></span>
+    </div>
+  </div>
+
+  <div id="bookingCard" class="card hidden">
+    <div class="section-title">Choose a day</div>
+    <div id="daySelector" class="day-scroll"></div>
+
+    <div class="section-title" id="slotsTitle">Choose a time</div>
+    <div id="tzNote" class="tz-note"></div>
+    <div id="slotGrid" class="slot-grid"></div>
+    <div id="noSlots" class="empty-state hidden">No open times this day. Try another day.</div>
+  </div>
+
+  <div id="formCard" class="card hidden">
+    <div class="selected-slot-summary">
+      <span>Selected: <strong id="selectedSlotLabel"></strong></span>
+      <button type="button" class="link" id="changeSlotBtn">Change</button>
+    </div>
+    <form id="bookingForm">
+      <div>
+        <label for="nameInput">Your name</label>
+        <input id="nameInput" type="text" required autocomplete="name" />
+      </div>
+      <div>
+        <label for="emailInput">Your email</label>
+        <input id="emailInput" type="email" required autocomplete="email" />
+        <div class="tz-note">You'll get a calendar invite and confirmation email here.</div>
+      </div>
+      <div>
+        <label for="notesInput">Anything you'd like to mention? (optional)</label>
+        <textarea id="notesInput" placeholder="e.g. what you'd like to work on"></textarea>
+      </div>
+      <div id="formError" class="notice error hidden"></div>
+      <button type="submit" class="primary" id="submitBtn">Confirm booking</button>
+    </form>
+  </div>
+
+  <div id="successCard" class="card hidden">
+    <div class="success">
+      <div class="check">&#10003;</div>
+      <h2>You're booked!</h2>
+      <p id="successDetail"></p>
+      <p style="margin-top:12px;">Check your email for the confirmation and calendar invite.</p>
+      <button type="button" class="primary" id="bookAnotherBtn" style="margin-top:20px;">Book another lesson</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  // ---------------------------------------------------------------------
+  // CONFIG — edit these to match your lessons and schedule.
+  // ---------------------------------------------------------------------
+  const CONFIG = {
+    // Paste the Web App URL from deploying booking-appscript.js.
+    APPS_SCRIPT_URL: 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE',
+
+    TUTOR_NAME: 'Your English Tutor',
+    HEADING: 'Book an English Lesson',
+    SUBHEADING: "Pick a time that works for you — I'll see you then!",
+
+    // Must match LESSON_DURATION_MINUTES in booking-appscript.js.
+    LESSON_DURATION_MINUTES: 50,
+
+    // Available start times per weekday (0 = Sunday ... 6 = Saturday),
+    // 24-hour "HH:MM", in your own local time. Edit freely.
+    WEEKLY_AVAILABILITY: {
+      1: ['16:00', '17:00', '18:00', '19:00'], // Monday
+      2: ['16:00', '17:00', '18:00', '19:00'], // Tuesday
+      3: ['16:00', '17:00', '18:00', '19:00'], // Wednesday
+      4: ['16:00', '17:00', '18:00', '19:00'], // Thursday
+      5: ['16:00', '17:00', '18:00'],           // Friday
+      6: ['10:00', '11:00', '12:00'],           // Saturday
+      0: []                                      // Sunday
+    }
+  };
+
+  document.getElementById('tutorHeading').textContent = CONFIG.HEADING;
+  document.getElementById('tutorSubheading').textContent = CONFIG.SUBHEADING;
+
+  const el = (id) => document.getElementById(id);
+  const show = (id) => el(id).classList.remove('hidden');
+  const hide = (id) => el(id).classList.add('hidden');
+
+  if (!CONFIG.APPS_SCRIPT_URL || CONFIG.APPS_SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
+    show('setupNotice');
+    return;
+  }
+
+  let availability = null; // { timezone, busy: [[isoStart, isoEnd], ...], ... }
+  let days = [];           // [{date: Date, key: 'YYYY-MM-DD'}]
+  let selectedDayKey = null;
+  let selectedSlot = null; // { date, time, label }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function dateKey(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+
+  function buildDays(count) {
+    const out = [];
+    const now = new Date();
+    for (let i = 0; i < count; i++) {
+      const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+      out.push({ date: d, key: dateKey(d) });
+    }
+    return out;
+  }
+
+  function slotsForDay(day) {
+    const weekday = day.date.getDay();
+    const times = CONFIG.WEEKLY_AVAILABILITY[weekday] || [];
+    const minStart = new Date(Date.now() + (availability.minNoticeHours || 0) * 60 * 60 * 1000);
+
+    return times
+      .map((time) => {
+        const [h, m] = time.split(':').map(Number);
+        const start = new Date(day.date.getFullYear(), day.date.getMonth(), day.date.getDate(), h, m);
+        const end = new Date(start.getTime() + CONFIG.LESSON_DURATION_MINUTES * 60 * 1000);
+        return { time, start, end };
+      })
+      .filter((slot) => slot.start >= minStart)
+      .filter((slot) => !isBusy(slot.start, slot.end));
+  }
+
+  function isBusy(start, end) {
+    return availability.busy.some(([bStartIso, bEndIso]) => {
+      const bStart = new Date(bStartIso);
+      const bEnd = new Date(bEndIso);
+      return start < bEnd && end > bStart;
+    });
+  }
+
+  function renderDays() {
+    const container = el('daySelector');
+    container.innerHTML = '';
+    days.forEach((day) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'day-btn';
+      const hasSlots = slotsForDay(day).length > 0;
+      if (!hasSlots) btn.classList.add('empty');
+      if (day.key === selectedDayKey) btn.classList.add('selected');
+      btn.innerHTML =
+        '<span class="dow">' + day.date.toLocaleDateString(undefined, { weekday: 'short' }) + '</span>' +
+        '<span class="dom">' + day.date.getDate() + '</span>';
+      btn.addEventListener('click', () => {
+        selectedDayKey = day.key;
+        renderDays();
+        renderSlots();
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function renderSlots() {
+    const grid = el('slotGrid');
+    grid.innerHTML = '';
+    const day = days.find((d) => d.key === selectedDayKey);
+    if (!day) return;
+
+    const slots = slotsForDay(day);
+    if (slots.length === 0) {
+      show('noSlots');
+      return;
+    }
+    hide('noSlots');
+
+    slots.forEach((slot) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'slot-btn';
+      btn.textContent = slot.start.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+      btn.addEventListener('click', () => selectSlot(day, slot));
+      grid.appendChild(btn);
+    });
+  }
+
+  function selectSlot(day, slot) {
+    selectedSlot = {
+      date: day.key,
+      time: slot.time,
+      label: day.date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' }) +
+        ' at ' + slot.start.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
+    };
+    el('selectedSlotLabel').textContent = selectedSlot.label;
+    hide('bookingCard');
+    show('formCard');
+  }
+
+  el('changeSlotBtn').addEventListener('click', () => {
+    hide('formCard');
+    show('bookingCard');
+  });
+
+  el('bookAnotherBtn').addEventListener('click', () => {
+    hide('successCard');
+    selectedSlot = null;
+    loadAvailability();
+  });
+
+  el('bookingForm').addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    hide('formError');
+
+    const submitBtn = el('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Booking...';
+
+    const payload = {
+      name: el('nameInput').value.trim(),
+      email: el('emailInput').value.trim(),
+      notes: el('notesInput').value.trim(),
+      date: selectedSlot.date,
+      time: selectedSlot.time
+    };
+
+    fetch(CONFIG.APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Confirm booking';
+        if (!data.ok) {
+          if (data.error === 'slot_taken') {
+            el('formError').textContent = 'Sorry, that time was just booked by someone else. Please pick another.';
+            show('formError');
+            hide('formCard');
+            show('bookingCard');
+            loadAvailability();
+          } else {
+            el('formError').textContent = 'Something went wrong. Please try again.';
+            show('formError');
+          }
+          return;
+        }
+        el('successDetail').textContent = selectedSlot.label + ' with ' + CONFIG.TUTOR_NAME + '.';
+        hide('formCard');
+        show('successCard');
+        el('bookingForm').reset();
+      })
+      .catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Confirm booking';
+        el('formError').textContent = 'Something went wrong. Please check your connection and try again.';
+        show('formError');
+      });
+  });
+
+  function loadAvailability() {
+    hide('bookingCard');
+    hide('loadError');
+
+    fetch(CONFIG.APPS_SCRIPT_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.ok) throw new Error('bad response');
+        availability = data;
+        days = buildDays(data.daysAhead || 21);
+        selectedDayKey = days.find((d) => slotsForDay(d).length > 0)?.key || days[0].key;
+        el('tzNote').textContent = 'Times shown in ' + availability.timezone + '.';
+        renderDays();
+        renderSlots();
+        show('bookingCard');
+      })
+      .catch((err) => {
+        el('loadErrorDetail').textContent = '';
+        show('loadError');
+      });
+  }
+
+  loadAvailability();
+})();
+</script>
+
+</body>
+</html>
